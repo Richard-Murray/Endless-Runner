@@ -136,8 +136,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 110437171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 535, y: 251, z: 0}
-  m_LocalScale: {x: 69.6676178, y: 64.508667, z: 37.8149834}
+  m_LocalPosition: {x: .100000001, y: -.200000003, z: 0}
+  m_LocalScale: {x: 1.04964232, y: 1.33826089, z: 5.53199482}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -337,7 +337,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1305412474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11486538, guid: a7cda0d0cf095a44a8168c9bd7f1de99, type: 2}
+        m_MethodName: StartHelp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1305412474
@@ -382,7 +393,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 364, y: -5}
+  m_AnchoredPosition: {x: 632, y: 167}
   m_SizeDelta: {x: 237, y: 42}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1358184937
@@ -510,7 +521,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 364, y: 125}
+  m_AnchoredPosition: {x: 632, y: 297}
   m_SizeDelta: {x: 237, y: 42}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1468947307
@@ -551,7 +562,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1468947308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11469266, guid: 1ff22296b20548c4dad62445855e896a, type: 2}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1468947308
@@ -614,7 +636,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 364, y: -155}
+  m_AnchoredPosition: {x: 632, y: 17}
   m_SizeDelta: {x: 237, y: 42}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1695898354
@@ -655,7 +677,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1695898355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11442970, guid: 56a2bdc9426895b44b40bdcd7ac24a7a, type: 2}
+        m_MethodName: QuitApplication
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1695898355
@@ -833,7 +866,7 @@ Transform:
   m_GameObject: {fileID: 1828875103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.75278282, y: 5.75278044, z: 5.75278044}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
