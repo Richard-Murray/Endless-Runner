@@ -104,10 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialSpeed: 4
-  m_speedMultiplierPerSecond: 0
+  m_speedMultiplierPerSecond: .00100000005
   m_jumpSpeed: 10
   m_antiGravBoostSpeed: 4
   m_rayDistance: .5
+  m_shieldMaxTime: 0
   m_collideMask:
     serializedVersion: 2
     m_Bits: 256
@@ -118,7 +119,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_speedMultiplierPerSecond
+      value: .00100000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140276}

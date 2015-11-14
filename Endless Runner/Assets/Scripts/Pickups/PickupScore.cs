@@ -22,5 +22,6 @@ public class PickupScore : BasePickup {
     {
         //base.PlayerCollision(a_player);
         GameManager.Instance.AddScore(1);
+        GameManager.Instance.ResetPlayer();
     }
 }

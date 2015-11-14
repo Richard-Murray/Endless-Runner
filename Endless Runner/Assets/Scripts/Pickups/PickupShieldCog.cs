@@ -20,7 +20,7 @@ public class PickupShieldCog : BasePickup {
 
     public override void PlayerCollision(GameObject a_player)
     {
-        
+        GameManager.Instance.AddShieldCog();
     }
 
 }
