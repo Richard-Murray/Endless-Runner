@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialSpeed: 4
-  m_jumpSpeed: 5
-  m_antiGravBoostSpeed: 2
+  m_jumpSpeed: 10
+  m_antiGravBoostSpeed: 4
   m_rayDistance: .5
   m_initialGravity: 20
 --- !u!1 &1344710733
@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 1371003679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.5614071, y: .5, z: 1}
+  m_LocalScale: {x: 50, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 1344710734}
   m_RootOrder: 0
@@ -454,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 2010786824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 16.5614071, y: .5, z: 1}
+  m_LocalScale: {x: 50, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 1344710734}
   m_RootOrder: 1
@@ -486,6 +486,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tapped: 0
+  m_swiped: 0
+  m_swipeRight: 0
+  m_swipeLeft: 0
+  m_swipeDown: 0
+  m_swipeUp: 0
 --- !u!4 &2052004090
 Transform:
   m_ObjectHideFlags: 0

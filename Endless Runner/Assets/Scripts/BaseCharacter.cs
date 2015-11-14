@@ -34,14 +34,11 @@ public class BaseCharacter : MonoBehaviour
 
         DetectCollisions();
         CalculateMovement();
-
-        //Debug.Log(m_velocity);
-
     }
 
     void DetectCollisions()
     {
-        Vector2 rayStart = new Vector2(transform.position.x, transform.position.y);
+        Vector2 rayStart = new Vector2(transform.position.x - 0.5f, transform.position.y);
         Vector2 rayDirection = new Vector2(0, -1);
         m_rayBelow = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime)); //This uses the previous frame's velocity to match up the collision boundary
         rayDirection.y = 1;
@@ -51,7 +48,7 @@ public class BaseCharacter : MonoBehaviour
 
     void CalculateMovement() //will move inputs out later
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (m_rayBelow || m_rayAbove))
+        if ((Input.GetKeyDown(KeyCode.Space) || ((InputManager.Instance.m_swipeUp && m_currentDirection == 1) || (InputManager.Instance.m_swipeDown && m_currentDirection == -1))) && (m_rayBelow || m_rayAbove))
         {
             m_velocity.y = m_antiGravBoostSpeed * m_currentDirection;
             m_currentDirection *= -1;
@@ -73,6 +70,8 @@ public class BaseCharacter : MonoBehaviour
         }
         else
         {
+            m_postJumpBoostFrames = 0;
+
             if (m_rayBelow && m_velocity.y <= 0)
             {
                 transform.position = new Vector3(transform.position.x, m_rayBelow.point.y + 0.5f, 0);
@@ -91,5 +90,10 @@ public class BaseCharacter : MonoBehaviour
         m_velocity.x = m_initialSpeed;
 
         transform.position += new Vector3(m_velocity.x, m_velocity.y, 0) * Time.deltaTime;
+    }
+
+    public void KillPlayer()
+    {
+
     }
 }
