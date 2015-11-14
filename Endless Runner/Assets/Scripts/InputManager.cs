@@ -31,14 +31,19 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Debug.Log("0");
         if (Input.touchCount != 0)//!Input.GetTouch(0).Equals(null))
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            Debug.Log("1");
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
+                Debug.Log("2");
                 m_tapped = true;
             }
-            m_tapped = false;
+            else
+            {
+                m_tapped = false;
+            }
         }
         else
         {
