@@ -462,6 +462,7 @@ GameObject:
   - 92: {fileID: 1576098458}
   - 124: {fileID: 1576098457}
   - 81: {fileID: 1576098456}
+  - 114: {fileID: 1576098461}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -535,6 +536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 1
 --- !u!1 &2001862412
 GameObject:
@@ -610,6 +612,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+=======
+  m_RootOrder: 0
+--- !u!114 &1576098461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1576098455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b21d35e3b285ce49a15b42f34204a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_primaryObject: {fileID: 486758025}
+  m_baseDistance: 10
+  m_baseYPosition: 0
+  m_distanceAhead: 5
+>>>>>>> 06e1018af4b356bd4996573caa016be208dec310
 --- !u!1 &2010786824
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,3 +704,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1344710734}
   m_RootOrder: 1
+--- !u!1 &2052004088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2052004090}
+  - 114: {fileID: 2052004089}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2052004089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052004088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a1b14dd1f222245b0a20a130c06b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tapped: 0
+--- !u!4 &2052004090
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052004088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.4219322, y: -2.51822615, z: -7.79983187}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
