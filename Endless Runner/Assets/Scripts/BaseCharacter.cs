@@ -35,7 +35,7 @@ public class BaseCharacter : MonoBehaviour
         DetectCollisions();
         CalculateMovement();
 
-        Debug.Log(m_velocity);
+        //Debug.Log(m_velocity);
 
     }
 
