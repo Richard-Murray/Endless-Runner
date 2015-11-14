@@ -7,11 +7,16 @@ public class BaseCharacter : MonoBehaviour
 
     [Header("Base Character Attributes")]
     public float m_initialSpeed;
+    public float m_speedMultiplierPerSecond;
     public float m_jumpSpeed;
     public float m_antiGravBoostSpeed;
     public float m_rayDistance;
 
+    public LayerMask m_collideMask;
+
     public float m_initialGravity;
+
+    float m_currentSpeed;
 
     int m_currentDirection; //1 is on the ground, -1 is on the roof
 
@@ -35,6 +40,10 @@ public class BaseCharacter : MonoBehaviour
 
         m_collidingAbove = false;
         m_collidingBelow = false;
+
+        m_currentSpeed = m_initialSpeed;
+
+        GameManager.Instance.LinkPlayer(this.gameObject);
     }
 
     // Update is called once per frame
@@ -42,6 +51,8 @@ public class BaseCharacter : MonoBehaviour
     {
         DetectCollisions();
         CalculateMovement();
+
+        m_currentSpeed *= 1 + m_speedMultiplierPerSecond;
     }
 
     void DetectCollisions()
@@ -55,7 +66,7 @@ public class BaseCharacter : MonoBehaviour
         {
             Vector2 rayStart = new Vector2(transform.position.x - 0.5f + i * 1, transform.position.y);
             Vector2 rayDirection = new Vector2(0, -1);
-            RaycastHit2D ray = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime));
+            RaycastHit2D ray = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime), m_collideMask);
             if(ray)
             {
                 m_rayBelow.Add(ray);
@@ -63,7 +74,7 @@ public class BaseCharacter : MonoBehaviour
             }
              //This uses the previous frame's velocity to match up the collision boundary
             rayDirection.y = 1;
-            ray = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime));
+            ray = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime), m_collideMask);
             if(ray)
             {
                 m_rayAbove.Add(ray);
@@ -114,7 +125,7 @@ public class BaseCharacter : MonoBehaviour
         m_postJumpBoostFrames -= Time.deltaTime;
 
         //Horizontal
-        m_velocity.x = m_initialSpeed;
+        m_velocity.x = m_currentSpeed;
 
         transform.position += new Vector3(m_velocity.x, m_velocity.y, 0) * Time.deltaTime;
     }

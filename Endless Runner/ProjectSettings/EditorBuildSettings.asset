@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scene.unity
   - enabled: 1
     path: Assets/Scenes/Help Menu.unity
+  - enabled: 1
+    path: Assets/Scenes/EndlessRun.unity
