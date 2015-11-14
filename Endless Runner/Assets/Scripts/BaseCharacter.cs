@@ -170,7 +170,7 @@ public class BaseCharacter : MonoBehaviour
 
     void CheckForDeath()
     {
-        if (m_collidingInFront || transform.position.y > 11 || transform.position.y < -1)
+        if (m_collidingInFront)// || transform.position.y > 11 || transform.position.y < -1)
         {
             GameManager.Instance.ResetPlayer();
         }
