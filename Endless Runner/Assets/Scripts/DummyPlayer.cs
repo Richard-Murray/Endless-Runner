@@ -4,8 +4,8 @@ using System.Collections;
 public class DummyPlayer : MonoBehaviour
 {
 
-    public GameObject text;
-
+    public GameObject _text;
+    public Rigidbody _dummyRigidBody;
 
     [Range(1,100)]
     [Tooltip("The Players current speed from 0-100")] 
@@ -24,7 +24,7 @@ public class DummyPlayer : MonoBehaviour
     /// this resets to false when they hit they hit a platform otherwise they will
     /// continue falling
     /// </summary>
-    private bool m_playerjumping;
+    protected bool m_playerjumping;
 
     TextMesh blah;
 
@@ -33,7 +33,7 @@ public class DummyPlayer : MonoBehaviour
 	void Start ()
     {
         tapcount = 0;
-        blah = text.GetComponent<TextMesh>();
+        blah = _text.GetComponent<TextMesh>();
 	}
 	
 	// Update is called once per frame
@@ -51,5 +51,16 @@ public class DummyPlayer : MonoBehaviour
            
 		}
 	}
+
+    void PlayerJump()
+    {
+        
+    }
+
+
+    public void isPlayerJumping(bool val)
+    {
+        m_playerjumping = val;
+    }
 
 }
