@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BaseCharacter : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class BaseCharacter : MonoBehaviour
 
     float m_postJumpBoostFrames; //for mario-style jump influence
 
-    RaycastHit2D m_rayBelow;
-    RaycastHit2D m_rayAbove;
+    List<RaycastHit2D> m_rayBelow;
+    List<RaycastHit2D> m_rayAbove;
+    bool m_collidingAbove;
+    bool m_collidingBelow;
 
     Vector2 m_velocity;
 
@@ -26,29 +29,53 @@ public class BaseCharacter : MonoBehaviour
     {
         m_currentDirection = 1;
         m_velocity = new Vector2(0, 0);
+
+        m_rayBelow = new List<RaycastHit2D>();
+        m_rayAbove = new List<RaycastHit2D>();
+
+        m_collidingAbove = false;
+        m_collidingBelow = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         DetectCollisions();
         CalculateMovement();
     }
 
     void DetectCollisions()
     {
-        Vector2 rayStart = new Vector2(transform.position.x - 0.5f, transform.position.y);
-        Vector2 rayDirection = new Vector2(0, -1);
-        m_rayBelow = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime)); //This uses the previous frame's velocity to match up the collision boundary
-        rayDirection.y = 1;
-        m_rayAbove = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime));
+        m_rayAbove.Clear();
+        m_rayBelow.Clear();
+
+        m_collidingAbove = false;
+        m_collidingBelow = false;
+        for (int i = 0; i < 2; i++)
+        {
+            Vector2 rayStart = new Vector2(transform.position.x - 0.5f + i * 1, transform.position.y);
+            Vector2 rayDirection = new Vector2(0, -1);
+            RaycastHit2D ray = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime));
+            if(ray)
+            {
+                m_rayBelow.Add(ray);
+                m_collidingBelow = true;
+            }
+             //This uses the previous frame's velocity to match up the collision boundary
+            rayDirection.y = 1;
+            ray = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime));
+            if(ray)
+            {
+                m_rayAbove.Add(ray);
+                m_collidingAbove = true;
+            }
+        }
 
     }
 
     void CalculateMovement() //will move inputs out later
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || ((InputManager.Instance.m_swipeUp && m_currentDirection == 1) || (InputManager.Instance.m_swipeDown && m_currentDirection == -1))) && (m_rayBelow || m_rayAbove))
+        if ((Input.GetKeyDown(KeyCode.Space) || ((InputManager.Instance.m_swipeUp && m_currentDirection == 1) || (InputManager.Instance.m_swipeDown && m_currentDirection == -1))) && (m_collidingBelow || m_collidingAbove))
         {
             m_velocity.y = m_antiGravBoostSpeed * m_currentDirection;
             m_currentDirection *= -1;
@@ -59,7 +86,7 @@ public class BaseCharacter : MonoBehaviour
 
         if (Input.GetKey(KeyCode.B) || InputManager.Instance.m_tapped)
         {
-            if (m_rayBelow || m_rayAbove)
+            if (m_collidingBelow || m_collidingAbove)
             {
                 m_postJumpBoostFrames = 0.25f;
             }
@@ -72,14 +99,14 @@ public class BaseCharacter : MonoBehaviour
         {
             m_postJumpBoostFrames = 0;
 
-            if (m_rayBelow && m_velocity.y <= 0)
+            if (m_collidingBelow && m_velocity.y <= 0)
             {
-                transform.position = new Vector3(transform.position.x, m_rayBelow.point.y + 0.5f, 0);
+                transform.position = new Vector3(transform.position.x, m_rayBelow[0].point.y + 0.5f, 0);
                 m_velocity.y = 0;
             }
-            if (m_rayAbove && m_velocity.y >= 0)
+            if (m_collidingAbove && m_velocity.y >= 0)
             {
-                transform.position = new Vector3(transform.position.x, m_rayAbove.point.y - 0.5f, 0);
+                transform.position = new Vector3(transform.position.x, m_rayAbove[0].point.y - 0.5f, 0);
                 m_velocity.y = 0;
             }
         }

@@ -9,11 +9,14 @@ public class InputManager : MonoBehaviour
     [HideInInspector]
     public bool m_tapped;
     [HideInInspector]
-    //public bool m_swipeUp;
     public bool m_swiped;
+    [HideInInspector]
     public bool m_swipeRight;
+    [HideInInspector]
     public bool m_swipeLeft;
+    [HideInInspector]
     public bool m_swipeDown;
+    [HideInInspector]
     public bool m_swipeUp;
 
     float m_fingerStartTime = 0.0f;
