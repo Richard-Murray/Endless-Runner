@@ -1,21 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
-public class InputManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
-=======
 public class InputManager : MonoBehaviour
 {
 
@@ -60,5 +45,5 @@ public class InputManager : MonoBehaviour
         }
 
     }
->>>>>>> 06e1018af4b356bd4996573caa016be208dec310
 }
+
