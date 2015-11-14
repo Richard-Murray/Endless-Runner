@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseCharacter : MonoBehaviour {
+public class BaseCharacter : MonoBehaviour
+{
 
     [Header("Base Character Attributes")]
     public float m_initialSpeed;
@@ -20,25 +21,27 @@ public class BaseCharacter : MonoBehaviour {
 
     Vector2 m_velocity;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         m_currentDirection = 1;
         m_velocity = new Vector2(0, 0);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         DetectCollisions();
         CalculateMovement();
 
         Debug.Log(m_velocity);
 
-	}
+    }
 
     void DetectCollisions()
     {
-        Vector2 rayStart = new Vector2(transform.position.x, transform.position.y);        
+        Vector2 rayStart = new Vector2(transform.position.x, transform.position.y);
         Vector2 rayDirection = new Vector2(0, -1);
         m_rayBelow = Physics2D.Raycast(rayStart, rayDirection, m_rayDistance + (Mathf.Abs(m_velocity.y) * Time.deltaTime)); //This uses the previous frame's velocity to match up the collision boundary
         rayDirection.y = 1;
@@ -57,13 +60,13 @@ public class BaseCharacter : MonoBehaviour {
         //Vertical
         m_velocity.y += m_initialGravity * -m_currentDirection * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.B))
+        if (Input.GetKey(KeyCode.B) || InputManager.Instance.m_tapped)
         {
             if (m_rayBelow || m_rayAbove)
             {
                 m_postJumpBoostFrames = 0.25f;
             }
-            if(m_postJumpBoostFrames > 0)
+            if (m_postJumpBoostFrames > 0)
             {
                 m_velocity.y = m_jumpSpeed * m_currentDirection;
             }
