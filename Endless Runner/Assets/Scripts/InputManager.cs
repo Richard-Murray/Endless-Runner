@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 
     public static InputManager Instance { get; private set; }
 
+    [HideInInspector]
     public bool m_tapped;
 
     void Awake()
