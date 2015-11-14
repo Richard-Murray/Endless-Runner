@@ -11,6 +11,7 @@ public class CommenceGame : MonoBehaviour {
 
 	public void StartGame()
 	{
-		Application.LoadLevel ("EndlessRun");
+		//Application.LoadLevel ("EndlessRun");
+        GameManager.Instance.SwitchToScene("EndlessRun");
 	}
 }

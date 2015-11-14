@@ -19,7 +19,7 @@ public class BaseCharacter : MonoBehaviour
     //None of these variables are aligned but who cares about optimisation
     float m_currentSpeed;
     int m_currentDirection; //1 is on the ground, -1 is on the roof
-    float m_postJumpBoostFrames; //for mario-style jump influence
+    //float m_postJumpBoostFrames; //for mario-style jump influence
     float m_shieldTimer;
     bool m_shieldOn;
 
@@ -121,18 +121,21 @@ public class BaseCharacter : MonoBehaviour
 
         if (Input.GetKey(KeyCode.B) || InputManager.Instance.m_tapped)
         {
+            //if (m_collidingBelow || m_collidingAbove)
+            //{
+            //    m_postJumpBoostFrames = 0.25f;
+            //}
+            //if (m_postJumpBoostFrames > 0)
+            //{
             if (m_collidingBelow || m_collidingAbove)
-            {
-                m_postJumpBoostFrames = 0.25f;
-            }
-            if (m_postJumpBoostFrames > 0)
             {
                 m_velocity.y = m_jumpSpeed * m_currentDirection;
             }
+            //}
         }
         else
         {
-            m_postJumpBoostFrames = 0;
+            //m_postJumpBoostFrames = 0;
 
             if (m_collidingBelow && m_velocity.y <= 0)
             {
@@ -146,7 +149,7 @@ public class BaseCharacter : MonoBehaviour
             }
         }
 
-        m_postJumpBoostFrames -= Time.deltaTime;
+        //m_postJumpBoostFrames -= Time.deltaTime;
 
         //Horizontal
         m_velocity.x = m_currentSpeed;

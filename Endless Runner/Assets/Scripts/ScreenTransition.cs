@@ -58,7 +58,13 @@ public class ScreenTransition : MonoBehaviour
 
         if (m_sceneQueued && m_alpha >= 1.0f)
         {
+            m_sceneQueued = false;
             Application.LoadLevel(m_sceneToLoad);
+            SetScreen(false);
+            if(m_sceneToLoad == "EndlessRun")
+            {
+                GameManager.Instance.SetState(STATE.GAME_SIMULATION);
+            }
         }
 
 
