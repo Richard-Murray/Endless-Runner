@@ -1,26 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
-public class InputManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
-=======
 public class InputManager : MonoBehaviour
 {
 
     public static InputManager Instance { get; private set; }
 
+    [HideInInspector]
     public bool m_tapped;
 
     void Awake()
@@ -60,5 +46,4 @@ public class InputManager : MonoBehaviour
         }
 
     }
->>>>>>> 06e1018af4b356bd4996573caa016be208dec310
 }
