@@ -61,7 +61,7 @@ public class ScreenTransition : MonoBehaviour
             m_sceneQueued = false;
             Application.LoadLevel(m_sceneToLoad);
             SetScreen(false);
-            if(m_sceneToLoad == "EndlessRun")
+            if(m_sceneToLoad == "EndlessRun" || m_sceneToLoad == "AnthonyBogliScene")
             {
                 GameManager.Instance.SetState(STATE.GAME_SIMULATION);
             }
