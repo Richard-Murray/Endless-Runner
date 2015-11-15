@@ -1883,8 +1883,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2296c6628563dc9459331ffbf4d80502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG_THIS_LEVEL: 0
   m_playerStartPosition: {x: 0, y: 0, z: 0}
   m_playerObject: {fileID: 0}
+  m_currentScore: 0
+  m_currentCogs: 0
+  m_doubleScore: 0
 --- !u!1 &2145777634 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 863ce59d04fbb52489f1ff6496b33b0e, type: 3}
