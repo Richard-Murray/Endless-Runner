@@ -71,7 +71,12 @@ public class ProceduralGen : MonoBehaviour {
 
 
         _distance = _PlayerUpdatePosition.x - _PlayerstartPosition.x;
-       
+
+
+        if (_IgnoreTwice)
+        {
+            RemoveSegment();
+        }
 
         if(_distance > 66)
         {
@@ -93,10 +98,7 @@ public class ProceduralGen : MonoBehaviour {
         }
 
 
-        if (_IgnoreTwice)
-        {
-            RemoveSegment();
-        }
+     
         
 
 
