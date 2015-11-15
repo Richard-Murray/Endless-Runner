@@ -1,0 +1,17 @@
+-Get the players start Position (only once)
+-Get the players update position (every single frame)
+
+-if the distance between start position and there update position
+< 50 pixels
+
+-Generate a segment ahead
+you make the start position = latest update position
+and you repeat the process.
+
+if the distance is < 25 pixels you delete the previous segment.
+but for the first instance of the game you ignore this otherwise it will crash
+
+
+
+
+

@@ -10,7 +10,8 @@ GameObject:
   - 4: {fileID: 497320}
   - 33: {fileID: 3311118}
   - 23: {fileID: 2312202}
-  m_Layer: 0
+  - 61: {fileID: 6159506}
+  m_Layer: 8
   m_Name: polySurface10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,8 @@ GameObject:
   - 4: {fileID: 436600}
   - 33: {fileID: 3351946}
   - 23: {fileID: 2396210}
-  m_Layer: 0
+  - 61: {fileID: 6124826}
+  m_Layer: 8
   m_Name: polySurface9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +125,8 @@ GameObject:
   - 4: {fileID: 481550}
   - 33: {fileID: 3385248}
   - 23: {fileID: 2350936}
-  m_Layer: 0
+  - 61: {fileID: 6195850}
+  m_Layer: 8
   m_Name: polySurface8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .340000004, y: -.170000002, z: 0}
+  m_LocalPosition: {x: 26.6234398, y: 20.2041187, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439776}
@@ -387,6 +390,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171544}
   m_Mesh: {fileID: 4300000, guid: 657779e2dc95903489b7a87dbb3bcb46, type: 3}
+--- !u!61 &6124826
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114568}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -6.10351562e-05}
+  serializedVersion: 2
+  m_Size: {x: 2800, y: 20}
+--- !u!61 &6159506
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101782}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .000122070312, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 4000, y: 20}
+--- !u!61 &6195850
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171544}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .000244140625, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 800, y: 20}
 --- !u!95 &9507822
 Animator:
   serializedVersion: 3
