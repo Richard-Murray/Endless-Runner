@@ -12,6 +12,7 @@ public class BaseCharacter : MonoBehaviour
     public float m_antiGravBoostSpeed;
     public float m_rayDistance;
     public float m_shieldMaxTime;
+    public float m_zOffset;
 
     public LayerMask m_collideMask;
 
@@ -147,12 +148,12 @@ public class BaseCharacter : MonoBehaviour
 
             if (m_collidingBelow && m_velocity.y <= 0)
             {
-                transform.position = new Vector3(transform.position.x, m_rayBelow[0].point.y + 0.5f, 0);
+                transform.position = new Vector3(transform.position.x, m_rayBelow[0].point.y + 0.5f, m_zOffset);
                 m_velocity.y = 0;
             }
             if (m_collidingAbove && m_velocity.y >= 0)
             {
-                transform.position = new Vector3(transform.position.x, m_rayAbove[0].point.y - 0.5f, 0);
+                transform.position = new Vector3(transform.position.x, m_rayAbove[0].point.y - 0.5f, m_zOffset);
                 m_velocity.y = 0;
             }
         }
