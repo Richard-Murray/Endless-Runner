@@ -6,6 +6,7 @@ public class BaseCharacter : MonoBehaviour
 {
     [Header("Base Character Attributes")]
     public float m_initialSpeed;
+    public float m_maxSpeed;
     public float m_speedMultiplierPerSecond;
     public float m_jumpSpeed;
     public float m_antiGravBoostSpeed;
@@ -21,7 +22,8 @@ public class BaseCharacter : MonoBehaviour
     int m_currentDirection; //1 is on the ground, -1 is on the roof
     //float m_postJumpBoostFrames; //for mario-style jump influence
     float m_shieldTimer;
-    bool m_shieldOn;
+    [HideInInspector]
+    public bool m_shieldOn;
 
 
     List<RaycastHit2D> m_rayBelow;
@@ -31,6 +33,8 @@ public class BaseCharacter : MonoBehaviour
     bool m_collidingInFront;
 
     Vector2 m_velocity;
+
+    Vector3 m_eRotation = new Vector3(0, 0, 0);
 
     // Use this for initialization
     void Start()
@@ -59,6 +63,8 @@ public class BaseCharacter : MonoBehaviour
         m_currentSpeed *= 1 + m_speedMultiplierPerSecond;
 
         CheckForDeath();
+
+        CalculateRotation();
     }
 
     void DetectCollisions()
@@ -112,6 +118,7 @@ public class BaseCharacter : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) || ((InputManager.Instance.m_swipeUp && m_currentDirection == 1) || (InputManager.Instance.m_swipeDown && m_currentDirection == -1))) && (m_collidingBelow || m_collidingAbove))
         {
+            SoundManager.Instance.PlayClip(5);
             m_velocity.y = m_antiGravBoostSpeed * m_currentDirection;
             m_currentDirection *= -1;
         }
@@ -129,6 +136,7 @@ public class BaseCharacter : MonoBehaviour
             //{
             if (m_collidingBelow || m_collidingAbove)
             {
+                SoundManager.Instance.PlayClip(6);
                 m_velocity.y = m_jumpSpeed * m_currentDirection;
             }
             //}
@@ -152,9 +160,28 @@ public class BaseCharacter : MonoBehaviour
         //m_postJumpBoostFrames -= Time.deltaTime;
 
         //Horizontal
+        if(m_currentSpeed > m_maxSpeed)
+        {
+            m_currentSpeed = m_maxSpeed;
+        }
         m_velocity.x = m_currentSpeed;
 
         transform.position += new Vector3(m_velocity.x, m_velocity.y, 0) * Time.deltaTime;
+    }
+
+    void CalculateRotation()
+    {
+        float rot;
+        if (m_currentDirection == -1)
+        {
+            rot = 180;
+        }
+        else
+        {
+            rot = 0;
+        }
+        m_eRotation.x = Mathf.Lerp(m_eRotation.x, rot, 5 * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(m_eRotation);
     }
 
     void HandleShield()
@@ -184,9 +211,4 @@ public class BaseCharacter : MonoBehaviour
         m_shieldTimer = m_shieldMaxTime;
         SoundManager.Instance.PlayClip(3);
     }
-
-    //public void KillPlayer()
-    //{
-
-    //}
 }

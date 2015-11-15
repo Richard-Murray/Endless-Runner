@@ -71,6 +71,14 @@ public class GameManager : MonoBehaviour {
 
         }
 
+        if(m_gameState == STATE.GAME_SIMULATION)
+        {
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                SwitchToScene("Main Menu UI");
+            }
+        }
+
         HandleScoreChaining();
 	}
 
@@ -157,6 +165,8 @@ public class GameManager : MonoBehaviour {
         {
             cam.GetComponent<MainCamera>().UnlockCamera();
         }
+
+        SoundManager.Instance.PlayClip(7);
     }
 
     public void SetState(STATE a_state)

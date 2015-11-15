@@ -65,6 +65,11 @@ public class ScreenTransition : MonoBehaviour
             {
                 GameManager.Instance.SetState(STATE.GAME_SIMULATION);
             }
+            if(m_sceneToLoad == "Main Menu UI")
+            {
+                GameManager.Instance.SetState(STATE.MENU_MAIN);
+            }
+
         }
 
 

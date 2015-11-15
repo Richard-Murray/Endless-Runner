@@ -158,6 +158,22 @@ Prefab:
       propertyPath: m_audioClipList.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 185a962b3307bd34b945382a306b256c, type: 3}
+    - target: {fileID: 11431318, guid: ed265d4680fd59c4898b9db3c20756c8, type: 2}
+      propertyPath: m_audioClipList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: eb9c3108efe5eeb4681b14e20ef6313d, type: 3}
+    - target: {fileID: 11431318, guid: ed265d4680fd59c4898b9db3c20756c8, type: 2}
+      propertyPath: m_audioClipList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8f630a4401abc8449a3e69bd0d4610b, type: 3}
+    - target: {fileID: 11431318, guid: ed265d4680fd59c4898b9db3c20756c8, type: 2}
+      propertyPath: m_audioClipList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f47a12a0ded665449799d759a318a6f, type: 3}
+    - target: {fileID: 11431318, guid: ed265d4680fd59c4898b9db3c20756c8, type: 2}
+      propertyPath: m_audioClipList.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 213cca06a9903c841b1b9cf366a50dc0, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed265d4680fd59c4898b9db3c20756c8, type: 2}
   m_IsPrefabParent: 0
