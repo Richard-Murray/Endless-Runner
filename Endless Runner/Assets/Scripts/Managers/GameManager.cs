@@ -20,10 +20,17 @@ public class GameManager : MonoBehaviour {
 
     STATE m_gameState;
 
-    int m_currentScore = 0;
-    int m_currentCogs = 0;
+    [HideInInspector]
+    public int m_currentScore = 0;
+    [HideInInspector]
+    public int m_currentCogs = 0;
 
     bool m_gameStarted = false;
+
+    float m_doubleScoreTimer = 0;
+    int m_chainedScoreCollection = 0;
+    [HideInInspector]
+    public bool m_doubleScore = false;
 
     void Awake()
     {
@@ -55,6 +62,7 @@ public class GameManager : MonoBehaviour {
         {
             m_gameState = STATE.GAME_SIMULATION;
         }
+
         if(!m_gameStarted && !m_playerObject && m_gameState == STATE.GAME_SIMULATION)
         {
             StartGameSimulation();
@@ -62,6 +70,8 @@ public class GameManager : MonoBehaviour {
             m_gameStarted = false;
 
         }
+
+        HandleScoreChaining();
 	}
 
     void ResetStatistics()
@@ -70,10 +80,36 @@ public class GameManager : MonoBehaviour {
         m_currentCogs = 0;
     }
 
+    void HandleScoreChaining()
+    {
+        m_doubleScoreTimer -= Time.deltaTime;
+
+        if(m_doubleScoreTimer <= 0)
+        {
+            m_doubleScore = false;
+            m_chainedScoreCollection = 0;
+        }
+    }
+
     public void AddScore(int a_scoreToAdd)
     {
-        m_currentScore += a_scoreToAdd;
-        Debug.Log(m_currentScore);
+        SoundManager.Instance.PlayClip(1);
+        m_doubleScoreTimer = 5;
+        m_chainedScoreCollection++;
+
+        if(m_chainedScoreCollection == 5)
+        {
+            m_doubleScore = true;
+        }
+
+        if (m_doubleScoreTimer > 0 && m_doubleScore)
+        {
+            m_currentScore += (a_scoreToAdd * 2);
+        }
+        else
+        {
+            m_currentScore += a_scoreToAdd;
+        }
     }
 
     public void AddShieldCog()
@@ -82,8 +118,12 @@ public class GameManager : MonoBehaviour {
         if(m_currentCogs >= 5)
         {
             m_playerObject.GetComponent<BaseCharacter>().TurnOnShield();
-            //tell GUI to activate effect
-            
+            SoundManager.Instance.PlayClip(3);
+            //tell GUI to activate effect            
+        }
+        else
+        {
+            SoundManager.Instance.PlayClip(2);
         }
     }
 

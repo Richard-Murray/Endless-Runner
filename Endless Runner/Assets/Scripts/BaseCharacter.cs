@@ -159,14 +159,14 @@ public class BaseCharacter : MonoBehaviour
 
     void HandleShield()
     {
-        m_shieldTimer -= Time.deltaTime;
-
         if(m_shieldTimer > 0)
         {
+            m_shieldTimer -= Time.deltaTime;
             m_shieldOn = true;
         }
         else
         {
+            m_shieldTimer = 0;
             m_shieldOn = false;
         }
     }
@@ -182,7 +182,7 @@ public class BaseCharacter : MonoBehaviour
     public void TurnOnShield()
     {
         m_shieldTimer = m_shieldMaxTime;
-
+        SoundManager.Instance.PlayClip(3);
     }
 
     //public void KillPlayer()

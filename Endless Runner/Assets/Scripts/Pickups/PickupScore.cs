@@ -21,7 +21,8 @@ public class PickupScore : BasePickup {
     public override void PlayerCollision(GameObject a_player)
     {
         //base.PlayerCollision(a_player);
-        GameManager.Instance.AddScore(1);
-        GameManager.Instance.ResetPlayer();
+        GameManager.Instance.AddScore(2000);
+        //SoundManager.Instance.PlayClip(m_soundKey);
+        //GameManager.Instance.ResetPlayer();
     }
 }

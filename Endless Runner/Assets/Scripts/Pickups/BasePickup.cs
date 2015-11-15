@@ -3,6 +3,9 @@ using System.Collections;
 
 public class BasePickup : MonoBehaviour {
 
+    //[Header("Base Pickup Attributes")]
+    //public int m_soundKey;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +18,6 @@ public class BasePickup : MonoBehaviour {
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("Collision");
         BaseCharacter player = collision.GetComponent<BaseCharacter>();
         if(player)
         {

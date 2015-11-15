@@ -108,7 +108,7 @@ MonoBehaviour:
   m_jumpSpeed: 10
   m_antiGravBoostSpeed: 4
   m_rayDistance: .5
-  m_shieldMaxTime: 0
+  m_shieldMaxTime: 7
   m_collideMask:
     serializedVersion: 2
     m_Bits: 256
@@ -123,6 +123,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_speedMultiplierPerSecond
       value: .00100000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_shieldMaxTime
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

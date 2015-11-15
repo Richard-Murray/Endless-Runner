@@ -47,7 +47,6 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("0");
         if (Input.touchCount != 0)//!Input.GetTouch(0).Equals(null))
         {
             switch (Input.GetTouch(0).phase)
@@ -73,7 +72,6 @@ public class InputManager : MonoBehaviour
                         float fingerEndTime = Time.time;
                         Vector2 fingerEndPosition = Input.GetTouch(0).position;
                         float distanceBetweenFingerPoints = (fingerEndPosition - m_fingerStartPosition).magnitude;
-                        //Debug.Log()
 
                         if (fingerEndTime < m_fingerStartTime + m_maxSwipeTime)
                         {
