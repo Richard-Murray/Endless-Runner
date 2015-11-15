@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +61,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143586}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 28a19ba9929f4844ba5c6e2f942ee42f, type: 3}
 --- !u!58 &5810054
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -86,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c9fef24c4b3c741966daacd932c9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundKey: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

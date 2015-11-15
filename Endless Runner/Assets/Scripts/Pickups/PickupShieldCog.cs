@@ -10,7 +10,8 @@ public class PickupShieldCog : BasePickup {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        transform.Rotate(new Vector3(0, 0, 1), 30 * Time.deltaTime);
 	}
 
     public override void OnTriggerEnter2D(Collider2D collision)
